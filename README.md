@@ -1,2 +1,1 @@
-# nhandien_gioitinh_camxuc
- 
+Nhận diện giới tính và cảm xúc thông qua khuôn mặt của webcam
