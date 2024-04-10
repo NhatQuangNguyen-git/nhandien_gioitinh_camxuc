@@ -7,3 +7,5 @@ notebook
 tqdm
 opencv-contrib-python
 scikit-learn
+keras
+keras_preprocessing
