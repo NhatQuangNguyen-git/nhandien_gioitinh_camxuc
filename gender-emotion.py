@@ -6,16 +6,16 @@ from tensorflow.keras.models import load_model
 import cvlib as cv
 
 # Load emotion detection model
-json_file = open("emotiondetector4.json", "r")
+json_file = open("model\emotiondetector4.json", "r")
 model_json = json_file.read()
 
 json_file.close()
 emotion_model = model_from_json(model_json)
-emotion_model.load_weights("emotiondetector4.h5")
+emotion_model.load_weights("model\emotiondetector4.h5")
 emotion_labels = {0: 'angry', 1: 'disgust', 2: 'fear', 3: 'happy', 4: 'neutral', 5: 'sad', 6: 'surprise'}
 
 # Load gender detection model
-gender_model = load_model('gender_detection.model')
+gender_model = load_model('model\gender_detection.model')
 gender_classes = ['man', 'woman']
 
 # Open webcam
