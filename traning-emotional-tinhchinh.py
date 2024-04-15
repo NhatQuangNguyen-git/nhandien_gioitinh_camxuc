@@ -113,10 +113,16 @@ model.fit_generator(datagen.flow(x_train, y_train, batch_size=128),
 
 
 
-
 # Tạo callback để lưu checkpoint
 checkpoint_path = "/content/drive/MyDrive/model_emotion/checkpoint4.h5"
 checkpoint = ModelCheckpoint(checkpoint_path, monitor='val_accuracy', verbose=1, save_best_only=True, mode='max')
 
 # Tiếp tục quá trình huấn luyện với checkpoint
 H = model.fit(x=x_train, y=y_train, batch_size=128, epochs=1, validation_data=(x_test, y_test), callbacks=[checkpoint])
+
+from keras.models import model_from_json
+json_file = open("facialemotionmodel.json", "r")
+model_json = json_file.read()
+json_file.close()
+model = model_from_json(model_json)
+model.load_weights("facialemotionmodel.h5")
